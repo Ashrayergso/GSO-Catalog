@@ -1,0 +1,24 @@
+```html
+{% extends "product_catalog/base_generic.html" %}
+
+{% block content %}
+  <div class="product-detail">
+    <div class="product-image">
+      <img src="{{ product.image }}" alt="{{ product.name }}">
+    </div>
+    <div class="product-info">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+      <p>Product Number: {{ product.number }}</p>
+      <p>Vendor: {{ product.vendor }}</p>
+      <p>Cost: {{ product.cost }}</p>
+      <a href="{{ product.link }}">Product Site</a>
+    </div>
+    <div class="product-actions">
+      <a href="{% url 'product_catalog:update_product' product.id %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'product_catalog:delete_product' product.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+{% endblock %}
+```
+This is the detail.html file for the product catalog application. It extends the base_generic.html file and fills the content block with the product details. The product details are displayed in a clean and user-friendly format. The product image, name, description, number, vendor, cost, and link are all displayed. There are also Update and Delete buttons for each product, which link to the update_product and delete_product views respectively.

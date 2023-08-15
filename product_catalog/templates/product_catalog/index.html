@@ -1,0 +1,42 @@
+```html
+{% extends "product_catalog/base_generic.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Product Catalog</h1>
+            <button id="export-button" class="btn btn-primary">Export</button>
+            <div class="product-list">
+                {% for product in products %}
+                <div class="card" id="product-card">
+                    <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text">Product Number: {{ product.number }}</p>
+                        <p class="card-text">Vendor: {{ product.vendor }}</p>
+                        <p class="card-text">Cost: {{ product.cost }}</p>
+                        <a href="{{ product.link }}" class="btn btn-primary">Go to Product</a>
+                        <button id="search-button" class="btn btn-secondary">Search</button>
+                        <button id="alternative-search-button" class="btn btn-secondary">Alternative Search</button>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="select-product">
+                            <label class="form-check-label" for="select-product">
+                                Select this product
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+```
+This is the HTML code for the index page of the product catalog. It extends the base_generic.html template and fills the content block with the product catalog. Each product is displayed in a card format with the product image, name, description, number, vendor, cost, and a link to the product site. There are also 'Search' and 'Alternative Search' buttons, a checkbox for users to select the product, and a field to add quantities. At the top of the page, there is an 'Export' button to export the list with the total cost.
