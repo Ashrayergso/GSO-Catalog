@@ -1,0 +1,22 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="{% static 'product_catalog/css/main.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'product_catalog:index' %}">Home</a>
+        <a href="{% url 'product_catalog:create' %}">Add Product</a>
+        <a href="{% url 'product_catalog:export' %}">Export</a>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <script src="{% static 'product_catalog/js/main.js' %}"></script>
+    <script src="{% static 'product_catalog/js/filtering.js' %}"></script>
+</body>
+</html>
+```
